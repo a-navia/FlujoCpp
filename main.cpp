@@ -1,6 +1,7 @@
 #include <iostream>
 #include "matematicas/matematicas.h"
 #include "geometria/geometria.h"
+#include "ciencia/ciencias/ciencias.h"
 
 int main() {
     //Ej1 uso de namespace
@@ -25,6 +26,21 @@ int main() {
 
     std::cout << "Area del cuadrado: " << cuadrado.calcularArea() << std::endl;
     std::cout << "Perimetro del cuadrado: " << cuadrado.calcularPerimetro() << std::endl;
+//ej4 subnamespace
+    double masa;
+    std::cout << "Introduce la masa en kilogramos: ";
+    std::cin >> masa;
+
+    double energia = Ciencias::energiaDesdeMasa(masa);
+    std::cout << "La energia equivalente es: " << energia << " julios" << std::endl;
+
+    double lado;
+    std::cout << "Introduce el lado del pentagono: ";
+    std::cin >> lado;
+
+    double diagonal = Ciencias::diagonalPentagono(lado);
+    std::cout << "La longitud de la diagonal del pentagono es: " << diagonal << " unidades" << std::endl;
+//ej5 STL
 
     return 0;
 }
