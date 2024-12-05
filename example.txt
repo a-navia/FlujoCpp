@@ -1,0 +1,11 @@
+El numero introducido es: 3
+La suma de 5 + 5 es: 10
+La resta de 5 - 5 es: 0
+Area del circulo: 153.938
+Perimetro del circulo: 43.9823
+Area del triangulo: 25
+Perimetro del triangulo: 15
+Area del cuadrado: 16
+Perimetro del cuadrado: 16
+La energia equivalente es: 3.59502e+17 julios
+La longitud de la diagonal del pentagono es: 8.09017 unidades

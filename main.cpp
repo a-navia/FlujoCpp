@@ -1,46 +1,61 @@
 #include <iostream>
+#include <fstream>
 #include "matematicas/matematicas.h"
 #include "geometria/geometria.h"
 #include "ciencia/ciencias/ciencias.h"
 
 int main() {
-    //Ej1 uso de namespace
-    int num;
-    std::cout << "Introduce un numero: ";
-    std::cin >> num;
-    std::cout << "El numero introducido es: " << num << std::endl;
+    std::ifstream file;
+    file.open("C:/Users/navia/Documents/GitHub/FlujoCpp/example.txt");
+    if (!file) {
+        std::cerr << "No se pudo abrir el archivo.\n";
+    } else {
+        std::cout << "El archivo se abrió correctamente.\n";
+        file.close();
 
-    matematicas::Matematicas mat;
-    std::cout << "La suma de 5 + 5 es: " << mat.suma(5, 5) << std::endl;
-    std::cout << "La resta de 5 - 5 es: " << mat.resta(5, 5) << std::endl;
-//Ej2 Namespace archivos diferentes
-    Geometria::Circulo circulo(7.0);
-    Geometria::Triangulo triangulo(5.0, 10.0);
-    Geometria::Cuadrado cuadrado(4.0);
-//Ej3 namespace relacion  con clases
-    std::cout << "Area del circulo: " << circulo.calcularArea() << std::endl;
-    std::cout << "Perimetro del circulo: " << circulo.calcularPerimetro() << std::endl;
+        std::ofstream outFile("C:/Users/navia/Documents/GitHub/FlujoCpp/example.txt");
 
-    std::cout << "Area del triangulo: " << triangulo.calcularArea() << std::endl;
-    std::cout << "Perimetro del triangulo: " << triangulo.calcularPerimetro() << std::endl;
+        //Ej1 uso de namespace
+        int num;
+        std::cout << "Introduce un numero: ";
+        std::cin >> num;
+        outFile << "El numero introducido es: " << num << std::endl;
 
-    std::cout << "Area del cuadrado: " << cuadrado.calcularArea() << std::endl;
-    std::cout << "Perimetro del cuadrado: " << cuadrado.calcularPerimetro() << std::endl;
-//ej4 subnamespace
-    double masa;
-    std::cout << "Introduce la masa en kilogramos: ";
-    std::cin >> masa;
+        matematicas::Matematicas mat;
+        outFile << "La suma de 5 + 5 es: " << mat.suma(5, 5) << std::endl;
+        outFile << "La resta de 5 - 5 es: " << mat.resta(5, 5) << std::endl;
 
-    double energia = Ciencias::energiaDesdeMasa(masa);
-    std::cout << "La energia equivalente es: " << energia << " julios" << std::endl;
+        //Ej2 Namespace archivos diferentes
+        Geometria::Circulo circulo(7.0);
+        Geometria::Triangulo triangulo(5.0, 10.0);
+        Geometria::Cuadrado cuadrado(4.0);
 
-    double lado;
-    std::cout << "Introduce el lado del pentagono: ";
-    std::cin >> lado;
+        //Ej3 namespace relacion con clases
+        outFile << "Area del circulo: " << circulo.calcularArea() << std::endl;
+        outFile << "Perimetro del circulo: " << circulo.calcularPerimetro() << std::endl;
 
-    double diagonal = Ciencias::diagonalPentagono(lado);
-    std::cout << "La longitud de la diagonal del pentagono es: " << diagonal << " unidades" << std::endl;
-//ej5 STL
+        outFile << "Area del triangulo: " << triangulo.calcularArea() << std::endl;
+        outFile << "Perimetro del triangulo: " << triangulo.calcularPerimetro() << std::endl;
 
+        outFile << "Area del cuadrado: " << cuadrado.calcularArea() << std::endl;
+        outFile << "Perimetro del cuadrado: " << cuadrado.calcularPerimetro() << std::endl;
+
+        //ej4 subnamespace
+        double masa;
+        std::cout << "Introduce la masa en kilogramos: ";
+        std::cin >> masa;
+
+        double energia = Ciencias::energiaDesdeMasa(masa);
+        outFile << "La energia equivalente es: " << energia << " julios" << std::endl;
+
+        double lado;
+        std::cout << "Introduce el lado del pentagono: ";
+        std::cin >> lado;
+
+        double diagonal = Ciencias::diagonalPentagono(lado);
+        outFile << "La longitud de la diagonal del pentagono es: " << diagonal << " unidades" << std::endl;
+
+        outFile.close();
+    }
     return 0;
 }
