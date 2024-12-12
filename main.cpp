@@ -6,24 +6,21 @@
 #include "ciencia/ciencias/ciencias.h"
 
 int main(int argc, char* argv[]) {
-    // Check for command-line arguments
     if (argc < 2) {
         std::cerr << "Por favor, proporciona un argumento de texto para guardar en el archivo.\n";
         return 1;
     }
-
-    // Open file for writing command-line input
+//hace falta dar la direccion del archivo
     std::ofstream file("C:/Users/navia/Documents/GitHub/FlujoCpp/command_line_input.txt");
     if (!file) {
         std::cerr << "No se pudo abrir el archivo para guardar el texto del argumento.\n";
         return 1;
     }
 
-    file << argv[1]; // Save the first argument to the file
+    file << argv[1];
     std::cout << "El texto del argumento se guardó correctamente en 'command_line_input.txt'.\n";
     file.close();
 
-    // Continue with the existing functionality
     std::ifstream inFile;
     inFile.open("C:/Users/navia/Documents/GitHub/FlujoCpp/example.txt");
     if (!inFile) {
@@ -74,7 +71,7 @@ int main(int argc, char* argv[]) {
         double diagonal = Ciencias::diagonalPentagono(lado);
         outFile << "La longitud de la diagonal del pentagono es: " << diagonal << " unidades" << std::endl;
 
-        // Flujo de cadenas
+        // ej 5 Flujo de cadenas
         std::string text;
         std::cout << "Ingresa un texto: ";
         std::cin.ignore(); // Clear the newline character left in the input buffer
